@@ -7,5 +7,7 @@ import com.emainfo.cra.model.Client;
 
 @Repository
 public interface ClientRepository extends GenericRepository<Client,Long> {
+    Client findByName(String name);
+
     
 }

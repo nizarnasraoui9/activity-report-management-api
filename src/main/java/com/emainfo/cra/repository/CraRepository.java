@@ -2,6 +2,7 @@ package com.emainfo.cra.repository;
 
 import java.util.List;
 
+import com.emainfo.cra.model.Client;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
@@ -15,4 +16,5 @@ public interface CraRepository extends GenericRepository<Cra,Long> {
 	
 	List<Cra> findByAccount(final Account account);
 	List<Cra> findByYearAndMonth(Integer year,Integer month);
+	List<Cra> findByYearAndMonthAndClient(Integer year, Integer month, Client client);
 }

@@ -2,6 +2,8 @@ package com.emainfo.cra.service;
 
 import javax.annotation.Resource;
 
+import com.emainfo.cra.model.Client;
+import com.emainfo.cra.repository.ClientRepository;
 import org.springframework.stereotype.Service;
 
 import com.emainfo.cra.dto.CraDto;
@@ -22,6 +24,8 @@ public class CraService extends GenericService<Cra, CraDto, Long, CraRepository,
 	CraRepository craRepository;
 	@Resource
 	CraMapper craMapper;
+	@Resource
+	ClientRepository clientRepository;
 
 	public CraService(final CraRepository repo, final CraMapper mapper) {
 		super(repo, mapper);
@@ -39,8 +43,10 @@ public class CraService extends GenericService<Cra, CraDto, Long, CraRepository,
 
 		return Flux.fromIterable(repository.findByAccount(account)).map(mapper::toDto);
 	}
-	public Flux<CraDto> getCraByDate(Integer year,Integer month){
-		return Flux.fromIterable(craRepository.findByYearAndMonth(year,month)).map(craMapper::toDto);
+	public Flux<CraDto> getCraByDateAndClient(Integer year,Integer month,String name){
+		Client client=clientRepository.findByName(name);
+		System.out.println(name);
+		return Flux.fromIterable(craRepository.findByYearAndMonthAndClient(year,month,client)).map(craMapper::toDto);
 	}
 
 

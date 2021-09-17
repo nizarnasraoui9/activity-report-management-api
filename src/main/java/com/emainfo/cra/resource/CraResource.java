@@ -103,9 +103,11 @@ public class CraResource {
 
         return craService.retrieveById(id);
     }
-    @GetMapping("/{year}/{month}")
-    public Flux<CraDto> retreiveByDate(Integer year,Integer month){
-        return craService.getCraByDate(year,month);
+    @GetMapping("/{year}/{month}/{name}")
+    public Flux<CraDto> retreiveByDate(@PathVariable(value = "year") Integer year,@PathVariable(value = "month") Integer month,
+                                       @PathVariable(value = "name") String name){
+        System.out.println(name);
+        return craService.getCraByDateAndClient(year,month,name);
     }
 
     @PostMapping("/pdf")
