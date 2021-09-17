@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.17.0.final using JasperReports Library version 6.17.0-6d93193241dd8cc42629e188b94f9e0bc5722efd  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report6" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="83553f77-6bfb-4063-8cea-89e54c52b611">
+    <import value="org.apache.commons.codec.binary.*"/>
+    <style name="TableHeader" hTextAlign="Center" hImageAlign="Center" vTextAlign="Middle" vImageAlign="Middle" isBold="true"/>
+    <style name="TableCell" hTextAlign="Center" hImageAlign="Center" vTextAlign="Middle" vImageAlign="Middle"/>
+    <style name="TableFooter" hTextAlign="Right" hImageAlign="Right" vTextAlign="Middle" vImageAlign="Middle"/>
+    <style name="Table">
+        <box>
+            <pen lineWidth="0.5"/>
+        </box>
+    </style>
+    <style name="Table_TH" mode="Opaque" backcolor="#00FFFF">
+        <box>
+            <pen lineWidth="0.5" lineColor="#000000"/>
+            <topPen lineWidth="0.5" lineColor="#000000"/>
+            <leftPen lineWidth="0.5" lineColor="#000000"/>
+            <bottomPen lineWidth="0.5" lineColor="#000000"/>
+            <rightPen lineWidth="0.5" lineColor="#000000"/>
+        </box>
+    </style>
+    <style name="Table_CH" mode="Opaque" backcolor="#E6FFFF">
+        <box>
+            <pen lineWidth="0.5" lineColor="#000000"/>
+            <topPen lineWidth="0.5" lineColor="#000000"/>
+            <leftPen lineWidth="0.5" lineColor="#000000"/>
+            <bottomPen lineWidth="0.5" lineColor="#000000"/>
+            <rightPen lineWidth="0.5" lineColor="#000000"/>
+        </box>
+    </style>
+    <style name="Table_TD" mode="Opaque" backcolor="#10D5E3">
+        <box>
+            <pen lineWidth="0.5" lineColor="#000000"/>
+            <topPen lineWidth="0.5" lineColor="#000000"/>
+            <leftPen lineWidth="0.5" lineColor="#000000"/>
+            <bottomPen lineWidth="0.5" lineColor="#000000"/>
+            <rightPen lineWidth="0.5" lineColor="#000000"/>
+        </box>
+    </style>
+    <style name="Table 1_TH" mode="Opaque" backcolor="#73E6BF">
+        <box>
+            <topPen lineWidth="0.5" lineColor="#000000"/>
+            <bottomPen lineWidth="0.5" lineColor="#000000"/>
+        </box>
+    </style>
+    <style name="Table 1_CH" mode="Opaque" backcolor="#1C1E70">
+        <box>
+            <topPen lineWidth="0.5" lineColor="#000000"/>
+            <bottomPen lineWidth="0.5" lineColor="#000000"/>
+        </box>
+    </style>
+    <style name="Table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+        <box>
+            <topPen lineWidth="0.5" lineColor="#000000"/>
+            <bottomPen lineWidth="0.5" lineColor="#000000"/>
+        </box>
+        <conditionalStyle>
+            <conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+            <style backcolor="#DCF8EF"/>
+        </conditionalStyle>
+    </style>
+    <style name="Table 2_TH" mode="Opaque" backcolor="#73E6BF">
+        <box>
+            <topPen lineWidth="0.5" lineColor="#000000"/>
+            <bottomPen lineWidth="0.5" lineColor="#000000"/>
+        </box>
+    </style>
+    <style name="Table 2_CH" mode="Opaque" backcolor="#CFD7E6">
+        <box>
+            <topPen lineWidth="0.5" lineColor="#000000"/>
+            <bottomPen lineWidth="0.5" lineColor="#000000"/>
+        </box>
+    </style>
+    <style name="Table 2_TD" mode="Opaque" backcolor="#50D8AF">
+        <box>
+            <topPen lineWidth="0.5" lineColor="#000000"/>
+            <bottomPen lineWidth="0.5" lineColor="#000000"/>
+        </box>
+        <conditionalStyle>
+            <conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+            <style backcolor="#EBE8E8"/>
+        </conditionalStyle>
+    </style>
+    <style name="Table 3_TH" mode="Opaque" backcolor="#F0F8FF">
+        <box>
+            <topPen lineWidth="0.5" lineColor="#000000"/>
+            <bottomPen lineWidth="0.5" lineColor="#000000"/>
+        </box>
+    </style>
+    <style name="Table 3_CH" mode="Opaque" backcolor="#BFE1FF">
+        <box>
+            <topPen lineWidth="0.5" lineColor="#000000"/>
+            <bottomPen lineWidth="0.5" lineColor="#000000"/>
+        </box>
+    </style>
+    <style name="Table 3_TD" mode="Opaque" backcolor="#FFFFFF">
+        <box>
+            <topPen lineWidth="0.5" lineColor="#000000"/>
+            <bottomPen lineWidth="0.5" lineColor="#000000"/>
+        </box>
+    </style>
+    <style name="Table 4_TH" mode="Opaque" backcolor="#73E6BF">
+        <box>
+            <topPen lineWidth="0.5" lineColor="#000000"/>
+            <bottomPen lineWidth="0.5" lineColor="#000000"/>
+        </box>
+    </style>
+    <style name="Table 4_CH" mode="Opaque" backcolor="#AEEDF2">
+        <box>
+            <topPen lineWidth="0.5" lineColor="#000000"/>
+            <bottomPen lineWidth="0.5" lineColor="#000000"/>
+        </box>
+    </style>
+    <style name="Table 4_TD" mode="Opaque" backcolor="#BEEDE0">
+        <box>
+            <topPen lineWidth="0.5" lineColor="#000000"/>
+            <bottomPen lineWidth="0.5" lineColor="#000000"/>
+        </box>
+        <conditionalStyle>
+            <conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+            <style backcolor="#C9D6D2"/>
+        </conditionalStyle>
+    </style>
+    <style name="Table 5_TH" mode="Opaque" backcolor="#F0F8FF">
+        <box>
+            <topPen lineWidth="0.5" lineColor="#000000"/>
+            <bottomPen lineWidth="0.5" lineColor="#000000"/>
+        </box>
+    </style>
+    <style name="Table 5_CH" mode="Opaque" backcolor="#1C1E70">
+        <box>
+            <topPen lineWidth="0.5" lineColor="#000000"/>
+            <bottomPen lineWidth="0.5" lineColor="#000000"/>
+        </box>
+    </style>
+    <style name="Table 5_TD" mode="Opaque" backcolor="#50D8AF">
+        <box>
+            <topPen lineWidth="0.5" lineColor="#000000"/>
+            <bottomPen lineWidth="0.5" lineColor="#000000"/>
+        </box>
+        <conditionalStyle>
+            <conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+            <style backcolor="#FBFDFF"/>
+        </conditionalStyle>
+    </style>
+    <subDataset name="dataset1" uuid="3ac43c5a-4b78-4533-b76a-a877068ab0ae">
+        <field name="dayName" class="java.lang.String"/>
+        <field name="dayOfMonth" class="java.lang.Integer"/>
+        <field name="workedTime" class="java.lang.String"/>
+    </subDataset>
+    <parameter name="datasource" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+    <field name="id" class="java.lang.String"/>
+    <field name="date" class="java.lang.String"/>
+    <field name="contractedName" class="java.lang.String"/>
+    <field name="clientName" class="java.lang.String"/>
+    <field name="ContractedAdress" class="java.lang.String"/>
+    <field name="clientAdress" class="java.lang.String"/>
+    <field name="intervenant" class="java.lang.String"/>
+    <field name="fullDaysSum" class="java.lang.String"/>
+    <field name="halfDaysSum" class="java.lang.String"/>
+    <field name="totalDaysSum" class="java.lang.String"/>
+    <field name="signature" class="java.lang.String"/>
+    <detail>
+        <band height="802">
+            <componentElement>
+                <reportElement style="Table" x="4" y="90" width="220" height="650" forecolor="#FFFFFF" uuid="fbba5455-2991-4b6d-b4cd-c538b9edab28">
+                    <property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.HorizontalRowLayout"/>
+                    <property name="com.jaspersoft.studio.table.style.table_header" value="Table 5_TH"/>
+                    <property name="com.jaspersoft.studio.table.style.column_header" value="Table 5_CH"/>
+                    <property name="com.jaspersoft.studio.table.style.detail" value="Table 5_TD"/>
+                    <property name="net.sf.jasperreports.style.radius" value="19"/>
+                </reportElement>
+                <c:table xmlns:c="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+                    <datasetRun subDataset="dataset1" uuid="22045d52-fa1c-4621-a984-58be0aee7bc4">
+                        <dataSourceExpression><![CDATA[$P{datasource}]]></dataSourceExpression>
+                    </datasetRun>
+                    <c:column width="110" uuid="1a308371-30c6-479c-943b-ac5f9e609863">
+                        <c:columnHeader style="Table 5_CH" height="30">
+                            <box>
+                                <topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                                <leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                                <bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                                <rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                            </box>
+                            <staticText>
+                                <reportElement style="TableHeader" x="0" y="0" width="110" height="30" forecolor="#FFFFFF" uuid="5f8b325a-e73c-4031-ba47-ba975cea109e"/>
+                                <text><![CDATA[jour]]></text>
+                            </staticText>
+                        </c:columnHeader>
+                        <c:detailCell style="Table 5_TD" height="20">
+                            <box>
+                                <topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                                <leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                                <bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                                <rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                            </box>
+                            <textField>
+                                <reportElement x="0" y="0" width="110" height="20" uuid="29e0ed2c-1b49-4785-817b-924055510646"/>
+                                <textElement textAlignment="Left">
+                                    <font size="12"/>
+                                </textElement>
+                                <textFieldExpression><![CDATA["  "+$F{dayName}+". "+$F{dayOfMonth}]]></textFieldExpression>
+                            </textField>
+                        </c:detailCell>
+                    </c:column>
+                    <c:column width="110" uuid="91bb07ec-1028-42a2-b044-edf52ecab050">
+                        <c:columnHeader style="Table 5_CH" height="30">
+                            <box>
+                                <pen lineColor="#000000"/>
+                                <topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                                <leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                                <bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                                <rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                            </box>
+                            <staticText>
+                                <reportElement style="TableHeader" x="0" y="0" width="110" height="30" forecolor="#FFFFFF" uuid="58347450-e546-497a-a16f-9e7fc809a9b1"/>
+                                <box>
+                                    <topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                                    <leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                                    <bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                                    <rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                                </box>
+                                <text><![CDATA[Temps du travail]]></text>
+                            </staticText>
+                        </c:columnHeader>
+                        <c:detailCell style="Table 5_TD" height="20">
+                            <box>
+                                <topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                                <leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                                <bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                                <rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                            </box>
+                            <textField>
+                                <reportElement style="TableCell" x="0" y="0" width="110" height="20" uuid="0422eb76-0a6b-47aa-acef-98ec99425dfc"/>
+                                <textElement textAlignment="Left">
+                                    <font size="12"/>
+                                </textElement>
+                                <textFieldExpression><![CDATA[$F{workedTime}.equals("full") ? "1" : $F{workedTime}.equals("half") ? "0.5" : "0"]]></textFieldExpression>
+                            </textField>
+                        </c:detailCell>
+                    </c:column>
+                </c:table>
+            </componentElement>
+            <staticText>
+                <reportElement x="134" y="40" width="311" height="20" uuid="283efa76-406e-47bf-9c10-1cd958f029e6"/>
+                <textElement>
+                    <font size="16"/>
+                </textElement>
+                <text><![CDATA[COMPTE RENDU D'ACTIVITÉ MENSUEL]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="194" y="60" width="50" height="20" forecolor="#50D8AF" uuid="c473ffb6-9c42-4d90-9239-a827c7739a76"/>
+                <textElement>
+                    <font size="14"/>
+                </textElement>
+                <text><![CDATA[CRA # ]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="234" y="60" width="41" height="21" forecolor="#50D8AF" uuid="74c64f6c-34de-4070-a5aa-54c0fd323112"/>
+                <textElement>
+                    <font size="14"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="294" y="60" width="130" height="21" forecolor="#50D8AF" uuid="0fd80e30-b2c6-40e2-b481-3b4d3abc2609"/>
+                <textElement>
+                    <font size="14"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{date}]]></textFieldExpression>
+            </textField>
+            <rectangle radius="19">
+                <reportElement x="290" y="90" width="271" height="140" forecolor="#000000" backcolor="#50D8AF" uuid="48fbc160-6453-4ec1-bcee-a8572ed1f920"/>
+                <graphicElement>
+                    <pen lineWidth="0.0" lineStyle="Dashed"/>
+                </graphicElement>
+            </rectangle>
+            <staticText>
+                <reportElement x="299" y="100" width="170" height="21" uuid="464a6fc6-3840-42fb-a7ba-26c8be83d3d2"/>
+                <textElement>
+                    <font size="14" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Temps du travail]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="309" y="180" width="29" height="30" forecolor="#1C1E70" uuid="f613b5d0-09cb-4b66-ab38-10f90fb2b437"/>
+                <textElement>
+                    <font size="14" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{fullDaysSum}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="330" y="180" width="62" height="30" forecolor="#1C1E70" uuid="41e57d90-7e11-4eeb-9f8b-dc629eecf104"/>
+                <textElement>
+                    <font size="14" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Journée]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="412" y="180" width="29" height="30" forecolor="#1C1E70" uuid="f24dbafa-41da-4460-b384-bf96c753a3dd"/>
+                <textElement>
+                    <font size="14" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{halfDaysSum}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="430" y="180" width="111" height="30" forecolor="#1C1E70" uuid="f083a7de-e1f1-4773-96f9-be6cfec8cbc3"/>
+                <textElement>
+                    <font size="14" isBold="true"/>
+                </textElement>
+                <text><![CDATA[demi-Journée]]></text>
+            </staticText>
+            <rectangle radius="19">
+                <reportElement x="292" y="250" width="271" height="280" forecolor="#000000" backcolor="#50D8AF" uuid="a4bd92d3-37a5-47b2-98e2-353ac080093c"/>
+                <graphicElement>
+                    <pen lineWidth="0.0" lineStyle="Dashed"/>
+                </graphicElement>
+            </rectangle>
+            <staticText>
+                <reportElement x="303" y="260" width="170" height="21" uuid="d2e786e3-cacf-4d29-a19b-1cffc30095d7"/>
+                <textElement>
+                    <font size="14" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Prestataire]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="304" y="290" width="240" height="30" forecolor="#1C1E70" uuid="dfb7b7c1-dbd7-45a8-ab7c-bacf5dd500ba"/>
+                <textElement>
+                    <font size="14" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{contractedName}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement isPrintRepeatedValues="false" x="396" y="330" width="151" height="40" isRemoveLineWhenBlank="true" forecolor="#000000" uuid="97d37e1e-a702-463a-a445-a92a6d471b0b"/>
+                <textElement>
+                    <font size="12" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{ContractedAdress}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="322" y="330" width="70" height="30" forecolor="#1C1E70" uuid="f8d9a3e2-5a42-4f98-80c2-cd9319714507"/>
+                <textElement>
+                    <font size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Adresse : ]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="302" y="370" width="90" height="30" forecolor="#1C1E70" uuid="05dd1fe0-5d79-4844-85b7-d7145bbe423b"/>
+                <textElement>
+                    <font size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Intervenant :]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="400" y="370" width="141" height="30" forecolor="#000000" uuid="582d3ad7-3807-4a94-930f-ea00feba5d9f"/>
+                <textElement>
+                    <font size="12" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{intervenant}]]></textFieldExpression>
+            </textField>
+            <rectangle radius="19">
+                <reportElement x="291" y="540" width="271" height="262" forecolor="#000000" backcolor="#50D8AF" uuid="04d5cefc-b8ee-47b2-88eb-16ac34b38d4c"/>
+                <graphicElement>
+                    <pen lineWidth="0.0" lineStyle="Dashed"/>
+                </graphicElement>
+            </rectangle>
+            <textField>
+                <reportElement x="307" y="590" width="240" height="30" forecolor="#1C1E70" uuid="30d91e58-ba43-4f66-8c30-399f34deaa03"/>
+                <textElement>
+                    <font size="14" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{clientName}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="324" y="627" width="70" height="30" forecolor="#1C1E70" uuid="32a2efdd-817e-4843-aacc-84ff6bf1f3d0"/>
+                <textElement>
+                    <font size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Adresse : ]]></text>
+            </staticText>
+            <textField isBlankWhenNull="true">
+                <reportElement x="403" y="627" width="152" height="40" forecolor="#000000" uuid="66df6505-c003-45f0-8a27-bc665469382a"/>
+                <textElement>
+                    <font size="12" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{clientAdress}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="304" y="560" width="170" height="21" uuid="945b2bf5-732a-467c-b4b6-861a894956dc"/>
+                <textElement>
+                    <font size="14" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Client]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="310" y="140" width="29" height="30" forecolor="#1C1E70" uuid="546e4d4b-9695-449f-92cd-3e56ddbbece7"/>
+                <textElement>
+                    <font size="14" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{totalDaysSum}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="329" y="140" width="62" height="30" forecolor="#1C1E70" uuid="a50d7aab-b3c3-4804-b39c-507d0c241b1e"/>
+                <textElement>
+                    <font size="14" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Jours]]></text>
+            </staticText>
+            <rectangle radius="6">
+                <reportElement x="309" y="680" width="244" height="110" backcolor="#F0F0F0" uuid="03b10f5b-8172-45ce-81ad-35a4f785b2e7"/>
+            </rectangle>
+            <staticText>
+                <reportElement x="314" y="680" width="40" height="30" uuid="3dec1ce1-38c3-464b-a86e-bc3dff31b8aa"/>
+                <textElement>
+                    <font size="14"/>
+                </textElement>
+                <text><![CDATA[Date]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="440" y="680" width="79" height="30" uuid="c1e3d912-8862-497c-b85a-30671fe98459"/>
+                <textElement>
+                    <font size="14"/>
+                </textElement>
+                <text><![CDATA[Signature]]></text>
+            </staticText>
+            <rectangle radius="6">
+                <reportElement x="304" y="400" width="244" height="120" backcolor="#F0F0F0" uuid="8148495a-e66e-4e06-8503-e6b2ba6c234a"/>
+            </rectangle>
+            <staticText>
+                <reportElement x="310" y="400" width="40" height="30" uuid="96718ecf-7b84-46cc-b148-ebf3efb84926"/>
+                <textElement>
+                    <font size="14"/>
+                </textElement>
+                <text><![CDATA[Date]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="440" y="400" width="79" height="30" uuid="acd2ac22-2807-4087-b9b3-e7efbddfda89"/>
+                <textElement>
+                    <font size="14"/>
+                </textElement>
+                <text><![CDATA[Signature]]></text>
+            </staticText>
+            <image>
+                <reportElement x="422" y="430" width="126" height="90" uuid="f3ee6744-a67d-4b8c-865d-04e217cf5ff1"/>
+                <box>
+                    <pen lineWidth="1.0"/>
+                    <topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                    <leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                    <bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                    <rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                </box>
+                <imageExpression><![CDATA[javax.imageio.ImageIO.read(new java.io.ByteArrayInputStream(java.util.Base64.getDecoder().decode($F{signature})))]]></imageExpression>
+            </image>
+
+        </band>
+    </detail>
+</jasperReport>
